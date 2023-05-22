@@ -47,7 +47,7 @@ dots ls-files .config/polybar/
 
 #### Replication
 ~~~ sh
-git clone --recursive --separate-git-dir=$HOME/.dots.git https://github.com/jaagr/dots.git /tmp/dots
+git clone --recursive --separate-git-dir=$HOME/.dots.git https://github.com/Purusah/dots.git /tmp/dots
 rsync -rvl --exclude ".git" /tmp/dots/ $HOME/
 rm -r /tmp/dots
 dots submodule update --init --recursive $HOME/

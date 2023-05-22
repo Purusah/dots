@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+alias dots='git --git-dir=$HOME/.dots.git --work-tree=$HOME'
+alias dots-ls='dots ls-files'
+alias dots-ls-untracked='dots status -u .'
+
+alias ll='ls -alF'
+

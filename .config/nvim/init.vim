@@ -4,8 +4,6 @@ call plug#begin('~/AppImages/nvim/plugins')
 
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 
-Plug 'kyazdani42/nvim-tree.lua' " File tree
-
 Plug 'rust-lang/rust.vim' " Rust support
 Plug 'neovim/nvim-lspconfig'
 Plug 'neovim/nvim-lspconfig'
@@ -18,7 +16,11 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'nvim-treesitter/nvim-treesitter'
 
-" Plug 'https://github.com/morhetz/gruvbox'
+Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v2.x' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'MunifTanjim/nui.nvim'
+
 Plug 'folke/tokyonight.nvim'
 
 call plug#end()
@@ -53,8 +55,10 @@ set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable
 
 " mappings
-nnoremap <C-b> :NvimTreeToggle<CR>
 nnoremap <Space> <Leader>
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
 " airline
 let g:airline_powerline_fonts = 1
 
