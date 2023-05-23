@@ -1,0 +1,8 @@
+/.dots.git
+.cache
+.cargo
+.config/nvim/undodir
+.config/*
+.mozilla
+.ssh
+.pki
