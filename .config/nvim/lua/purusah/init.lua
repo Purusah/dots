@@ -1,5 +1,5 @@
 require('purusah.neotree')
-require('purusah.lspconfig')
 require('purusah.completion')
-require('purusah.treesitter')
+require('purusah.treesitter') -- if keep it here then folding works
+require('purusah.lspconfig') -- last to keep keyboard binding workable
 

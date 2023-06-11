@@ -16,7 +16,7 @@ local on_attach = function(client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
   vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<space>rn', function() vim.lsp.buf.rename() end, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
@@ -25,6 +25,7 @@ end
 require('lspconfig').rust_analyzer.setup{
     cmd = { 'rust-analyzer' },
 	on_attach = on_attach,
+    filetypes = { "rust" },
 	settings = {
         ["rust-analyzer"] = {
             assist = {
@@ -40,15 +41,15 @@ require('lspconfig').rust_analyzer.setup{
             },
             inlayHints = {
                 lifetimeElisionHints = {
-                    enable = true,
-                    useParameterNames = true
+                    enable = false,
+                    useParameterNames = false 
                 },
             }, 
 		}
     }
 }
-require('lspconfig').tsserver.setup{
-	on_attach = on_attach,
-}
+--require('lspconfig').tsserver.setup{
+--	on_attach = on_attach,
+--}
 
 

@@ -3,6 +3,7 @@
 
 require("neo-tree").setup({
   close_if_last_window = true, 
+  enable_diagnostics = false,
   sort_case_insensitive = false,
   default_component_configs = {
     container = {
@@ -203,7 +204,16 @@ require("neo-tree").setup({
         ["gg"] = "git_commit_and_push",
       }
     }
-  }
+  },
+  source_selector = {
+    winbar = true,
+    status_bar = true,
+    sources = {{ source = "filesystem", display_name = " Files" }, { source = "buffers", display_name = " Buffers" }, { source = "git_status", display_name = " Git" }},
+    padding = 2,
+    content_layout = "center",
+    show_separator_on_edge = true,
+    separator = { left = "/", right = "\\" },
+  },
 })
 
 -- vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
