@@ -1,4 +1,4 @@
-filetype plugin indent on
+"filetype plugin indent on
 
 call plug#begin('~/AppImages/nvim/plugins')
 
@@ -22,6 +22,8 @@ Plug 'nvim-tree/nvim-web-devicons'
 Plug 'MunifTanjim/nui.nvim'
 
 Plug 'folke/tokyonight.nvim'
+
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -48,6 +50,9 @@ set syntax=enable
 set tabstop=4
 set undodir=~/.config/nvim/undodir
 set undofile
+
+" vim-gitgutter suggestion, default 4000
+set updatetime=1000
 
 " treesitter folding
 set foldmethod=expr
@@ -116,17 +121,23 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 " nnoremap <silent> <leader>th :new<CR>:terminal<CR>
 " tnoremap <C-x> <C-\><C-n><C-w>q
 
+" jump to next/previous hunk 
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+" nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
+" nmap <Leader>hs <Plug>(GitGutterStageHunk)
+" nmap <Leader>hu <Plug>(GitGutterUndoHunk)
+
 
 " Rust
 let g:rustfmt_autosave = 1
 
+
 " airline
 let g:airline_powerline_fonts = 1
-
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
@@ -136,6 +147,15 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 let g:airline_section_y = '' " hide file encoding information
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
+
+" vim-gitgutter
+" suppress the signs when a file has more than number of changes
+let g:gitgutter_max_signs = 500
+let g:gitgutter_show_msg_on_hunk_jumping = 1
+" let g:gitgutter_enabled = 0
+" let g:gitgutter_map_keys = 0
+
 
 lua require('purusah')
 
