@@ -24,9 +24,9 @@ end
 
 require('lspconfig').rust_analyzer.setup{
     cmd = { 'rust-analyzer' },
-	on_attach = on_attach,
+    on_attach = on_attach,
     filetypes = { "rust" },
-	settings = {
+    settings = {
         ["rust-analyzer"] = {
             assist = {
                 importEnforceGranularity = true,
@@ -44,12 +44,13 @@ require('lspconfig').rust_analyzer.setup{
                     enable = false,
                     useParameterNames = false 
                 },
-            }, 
-		}
+            },
+        }
     }
 }
---require('lspconfig').tsserver.setup{
---	on_attach = on_attach,
---}
 
+require('lspconfig').tsserver.setup{
+    on_attach = on_attach,
+    filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
+}
 

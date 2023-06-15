@@ -36,11 +36,13 @@ set completeopt=menu,menuone,noselect
 set cursorcolumn
 set cursorline
 set encoding=UTF-8
+set foldlevel=99 " first usage of zc folds everything
 set list
 set mouse=a
 set number
 set relativenumber
 set ruler
+set tabstop=4
 set shiftwidth=4
 set showcmd
 set showmode
