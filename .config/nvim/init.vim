@@ -25,6 +25,10 @@ Plug 'folke/tokyonight.nvim'
 
 Plug 'airblade/vim-gitgutter'
 
+Plug 'lukas-reineke/indent-blankline.nvim'
+
+Plug 'folke/which-key.nvim'
+
 call plug#end()
 
 colorscheme tokyonight-moon
