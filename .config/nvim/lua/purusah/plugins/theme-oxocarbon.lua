@@ -1,9 +1,5 @@
 return {
-	"nyoom-engineering/oxocarbon.nvim"
-	-- Add in any other configuration;
-	--   event = foo,
-	--   config = bar
-	--   end,
+  "nyoom-engineering/oxocarbon.nvim"
 }
 
 -- vim: ts=2 sts=2 sw=2 et

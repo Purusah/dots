@@ -104,8 +104,8 @@ require('lazy').setup({
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
-  require 'purusah.plugins.autoformat',
   require 'purusah.plugins.completion',
+  require 'purusah.plugins.conform',
   require 'purusah.plugins.debug',
   require 'purusah.plugins.indent_blankline',
   require 'purusah.plugins.lspconfig',
