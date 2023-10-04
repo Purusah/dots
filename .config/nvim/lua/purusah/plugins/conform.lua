@@ -33,7 +33,7 @@ return {
     -- It will pass the table to conform.format().
     -- This can also be a function that returns the table.
     format_after_save = {
-      lsp_fallback = true,
+      lsp_fallback = false,
     },
     -- Set the log level. Use `:ConformInfo` to see the location of the log file.
     log_level = vim.log.levels.ERROR,
@@ -43,7 +43,7 @@ return {
     formatters = {
       my_formatter = {
         -- This can be a string or a function that returns a string
-        command = "my_cmd",
+        command = "npx run eslint",
         -- OPTIONAL - all fields below this are optional
         -- A list of strings, or a function that returns a list of strings
         -- Return a single string instead to run the command in a shell
