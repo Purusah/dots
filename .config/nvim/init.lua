@@ -199,6 +199,8 @@ vim.o.termguicolors = true
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { silent = true })
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+
 -- " Shortcut to edit THIS configuration file
 -- nnoremap <silent> <leader>ce :e $MYVIMRC<CR>
 --
@@ -247,6 +249,7 @@ vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 -- Auto start when opening a directory
 vim.cmd [[autocmd StdinReadPre * let s:std_in=1]]
 vim.cmd [[autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | exe 'Neotree' | endif]]
+
 
 -- -- [[ Configure Telescope ]]
 -- -- See `:help telescope` and `:help telescope.setup()`
