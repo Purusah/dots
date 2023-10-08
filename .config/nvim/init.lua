@@ -21,7 +21,7 @@ require('lazy').setup({
 
   -- Git related plugins
   -- 'tpope/vim-fugitive',
-  -- 'tpope/vim-rhubarb',
+  -- 'tpope/vim-rhubarb,
 
   -- Detect tabstop and shiftwidth automatically
   -- 'tpope/vim-sleuth',
@@ -208,19 +208,19 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 -- nnoremap <silent> <leader>cs :source $MYVIMRC<CR>
 
 vim.keymap.set('n', '<leader>bb', '<C-^>', { desc = 'Buffer: toggle', silent = true })
--- " close buffer
--- nnoremap <silent> <leader>bd :bd<CR>
-vim.keymap.set('n', '<leader>bg', ':ls<CR>:buffer<Space>', { desc = 'Buffer: list and select', silent = true })
+vim.keymap.set('n', '<leader>bd', ':b#|bd#<CR>', { desc = 'Buffer: delete current buffer', silent = true })
 vim.keymap.set('n', '<leader>bh', ':new<CR>', { desc = 'Buffer: horizontal  split', silent = true })
--- " kill buffer
--- " nnoremap <silent> <leader>bk :bd!<CR>
 vim.keymap.set('n', '<leader>bl', ':ls<CR>', { desc = 'Buffer: list', silent = true })
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Buffer: go to next', silent = true })
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = 'Buffer: go to previous', silent = true })
+vim.keymap.set('n', '<leader>bs', ':ls<CR>:buffer<Space>', { desc = 'Buffer: list and select', silent = true })
+vim.keymap.set('n', '<leader>bu', ':ls<CR>:bdelete<Space>', { desc = 'Buffer: list adn delete', silent = true })
 vim.keymap.set('n', '<leader>bv', ':vnew<CR>', { desc = 'Buffer: vertical split', silent = true })
+-- " kill buffer
+-- " nnoremap <silent> <leader>bk :bd!<CR>
 
--- " redraw screan and clear search highlighted items
--- "http://stackoverflow.com/questions/657447/vim-clear-last-search-highlighting#answer-25569434
+-- redraw screan and clear search highlighted items
+-- http://stackoverflow.com/questions/657447/vim-clear-last-search-highlighting#answer-25569434
 -- nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 -- Keymaps for better default experience

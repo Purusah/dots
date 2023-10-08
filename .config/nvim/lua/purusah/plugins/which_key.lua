@@ -15,11 +15,13 @@ return {
       b = {
         name = "Buffer",
         b = "Toggle",
-        g = "List and Select",
+        d = "Delete",
         h = "Horizontal Split",
         l = "List",
         n = "Next",
         p = "Previous",
+        s = "List and Select",
+        u = "List and Delete",
         v = "Vertical Split",
       },
       g = {
