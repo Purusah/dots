@@ -14,6 +14,7 @@ return {
       close_if_last_window = true,
       enable_diagnostics = false,
       sort_case_insensitive = false,
+      open_files_do_not_replace_types = { "trouble", "qf" }, -- terminal removed
       default_component_configs = {
         container = {
           enable_character_fade = true
