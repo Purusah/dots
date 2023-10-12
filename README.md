@@ -53,3 +53,10 @@ rm -r /tmp/dots
 dots submodule update --init --recursive $HOME/
 ~~~
 
+
+## Dependencies
+
+* [Lua Language Server](https://luals.github.io/)
+* TypeScript LSP
+* See Telescope dependecy list
+
