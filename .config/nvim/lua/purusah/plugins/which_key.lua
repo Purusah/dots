@@ -31,7 +31,18 @@ return {
       r = {
         name = "LSP",
         n = "Rename"
-      }
+      },
+      s = {
+        name = "[S]earch",
+        b = "File [B]rowser",
+        c = "With [C]urrent Buffer Path",
+        d = "[D]iagnostics",
+        f = "[F]ile",
+        g = "By [G]rep",
+        h = "[H]elp",
+        r = "[R]esume",
+        w = "Current [W]ord",
+      },
     }, { prefix = "<leader>" })
 
     wk.register({

@@ -14,56 +14,33 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({
-  -- 'https://github.com/vim-airline/vim-airline' " Status bar
-  -- 'airblade/vim-gitgutter'
+require("lazy").setup({
   -- 'lukas-reineke/indent-blankline.nvim'
-
-  -- Git related plugins
-  -- 'tpope/vim-fugitive',
-  -- 'tpope/vim-rhubarb,
-
-  -- Detect tabstop and shiftwidth automatically
-  -- 'tpope/vim-sleuth',
+  -- 'tpope/vim-sleuth',-- Detect tabstop and shiftwidth automatically
 
   {
     'rust-lang/rust.vim',
     config = function()
+      vim.g.rustfmt_autosave = 1
     end,
   },
 
   {
-    -- Adds git related signs to the gutter, as well as utilities for managing changes
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      -- See `:help gitsigns.txt`
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-      on_attach = function(bufnr)
-        vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk, { buffer = bufnr, desc = 'Preview git hunk' })
-
-        -- don't override the built-in and fugitive keymaps
-        local gs = package.loaded.gitsigns
-        vim.keymap.set({ 'n', 'v' }, ']c', function()
-          if vim.wo.diff then return ']c' end
-          vim.schedule(function() gs.next_hunk() end)
-          return '<Ignore>'
-        end, { expr = true, buffer = bufnr, desc = "Jump to next hunk" })
-        vim.keymap.set({ 'n', 'v' }, '[c', function()
-          if vim.wo.diff then return '[c' end
-          vim.schedule(function() gs.prev_hunk() end)
-          return '<Ignore>'
-        end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })
-      end,
-    },
-  },
-
-  {
+    -- " airline
+    -- let g:airline_powerline_fonts = 1
+    -- if !exists('g:airline_symbols')
+    --     let g:airline_symbols = {}
+    -- endif
+    -- let g:airline_left_sep = ''
+    -- let g:airline_left_alt_sep = ''
+    -- let g:airline_right_sep = ''
+    -- let g:airline_right_alt_sep = ''
+    -- let g:airline_symbols.branch = ''
+    -- let g:airline_symbols.readonly = ''
+    -- let g:airline_symbols.linenr = ''
+    -- let g:airline_section_y = '' " hide file encoding information
+    -- let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+    -- 'https://github.com/vim-airline/vim-airline' " Status bar
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
@@ -80,10 +57,6 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
-
-  -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
-  --       These are some example plugins that I've included in the kickstart repository.
-  --       Uncomment any of the lines below to enable them.
   require 'purusah.plugins.completion',
   require 'purusah.plugins.conform',
   require 'purusah.plugins.debug',
@@ -107,7 +80,6 @@ require('lazy').setup({
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
--- NOTE: You can change these options as you wish!
 
 -- set completeopt=menu,menuone,noselect
 vim.opt.background = "dark" -- set this to dark or light
@@ -126,20 +98,16 @@ vim.o.shiftwidth = 4
 vim.o.showcmd = true
 vim.o.showmode = true
 vim.o.syntax = 'enable'
-vim.o.undodir = vim.fn.expand('~/.config/nvim/undodir')
+vim.o.undodir = vim.fn.expand('~/.cache/nvim/undodir')
 vim.o.undofile = true
 vim.tabstop = 4
 vim.softtabstop = 4
 vim.smarttab = 4
 
-
 -- treesitter folding
 vim.o.foldmethod = 'expr'
 vim.o.nofoldenable = true
 vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
-
--- Set highlight on search
--- vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
@@ -175,44 +143,6 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 
--- [[ Keymaps ]]
-
--- jump half page and center
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { silent = true })
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
-
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
-
--- " Shortcut to edit THIS configuration file
--- nnoremap <silent> <leader>ce :e $MYVIMRC<CR>
---
--- " Shortcut to source (reload) THIS configuration file
--- nnoremap <silent> <leader>cs :source $MYVIMRC<CR>
-
-vim.keymap.set('n', '<leader>bb', '<C-^>', { desc = 'Buffer: toggle', silent = true })
-vim.keymap.set('n', '<leader>bd', ':b#|bd#<CR>', { desc = 'Buffer: delete current buffer', silent = true })
-vim.keymap.set('n', '<leader>bh', ':new<CR>', { desc = 'Buffer: horizontal  split', silent = true })
-vim.keymap.set('n', '<leader>bl', ':ls<CR>', { desc = 'Buffer: list', silent = true })
-vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Buffer: go to next', silent = true })
-vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = 'Buffer: go to previous', silent = true })
-vim.keymap.set('n', '<leader>bs', ':ls<CR>:buffer<Space>', { desc = 'Buffer: list and select', silent = true })
-vim.keymap.set('n', '<leader>bu', ':ls<CR>:bdelete<Space>', { desc = 'Buffer: list adn delete', silent = true })
-vim.keymap.set('n', '<leader>bv', ':vnew<CR>', { desc = 'Buffer: vertical split', silent = true })
--- " kill buffer
--- " nnoremap <silent> <leader>bk :bd!<CR>
-
--- redraw screan and clear search highlighted items
--- http://stackoverflow.com/questions/657447/vim-clear-last-search-highlighting#answer-25569434
--- nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
--- vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
---
--- -- Remap for dealing with word wrap
--- vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
--- vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -224,34 +154,30 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- [[ LSP formt on save ]]
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
--- [[ Neotree ]]
+-- [[ File Browser ]]
 -- Auto start when opening a directory
 vim.cmd [[autocmd StdinReadPre * let s:std_in=1]]
-vim.cmd [[autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | exe 'Neotree' | endif]]
+vim.cmd [[autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | exe 'Telescope file_browser' | endif]] -- exe 'Neotree'
 
+-- [[ Keymaps.Jump ]]
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = "Jump Half Page Down and Center" })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = "Jump Half Page Up and Center" })
 
--- -- [[ Configure Telescope ]]
--- -- See `:help telescope` and `:help telescope.setup()`
--- require('telescope').setup {
---   defaults = {
---     mappings = {
---       i = {
---         ['<C-u>'] = false,
---         ['<C-d>'] = false,
---       },
---     },
---   },
--- }
+-- [[ Keymaps.Buffer]]
+vim.keymap.set('n', '<leader>bb', '<C-^>', { desc = 'Buffer: toggle', silent = true })
+vim.keymap.set('n', '<leader>bd', ':b#|bd#<CR>', { desc = '[B]uffer: delete current buffer', silent = true })
+vim.keymap.set('n', '<leader>bh', ':new<CR>', { desc = '[B]uffer [H]orizontal  Split', silent = true })
+vim.keymap.set('n', '<leader>bl', ':ls<CR>', { desc = 'Buffer: list', silent = true })
+vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Buffer: go to next', silent = true })
+vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = 'Buffer: go to previous', silent = true })
+vim.keymap.set('n', '<leader>bs', ':ls<CR>:buffer<Space>', { desc = 'Buffer: list and select', silent = true })
+vim.keymap.set('n', '<leader>bu', ':ls<CR>:bdelete<Space>', { desc = 'Buffer: list and delete', silent = true })
+vim.keymap.set('n', '<leader>bv', ':vnew<CR>', { desc = 'Buffer: vertical split', silent = true })
+-- " nnoremap <silent> <leader>bk :bd!<CR> -- kill buffer
 
--- -- Enable telescope fzf native, if installed
--- pcall(require('telescope').load_extension, 'fzf')
-
--- -- See `:help telescope.builtin`
+-- [[ Keymaps.Telescope ]]
 -- vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
--- vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 -- vim.keymap.set('n', '<leader>/', function()
 --   -- You can pass additional configuration to telescope to change theme, layout, etc.
 --   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -259,22 +185,47 @@ vim.cmd [[autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | exe 'Neotre
 --     previewer = false,
 --   })
 -- end, { desc = '[/] Fuzzily search in current buffer' })
-
+vim.keymap.set("n", '<leader><leader>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set("n", "<leader>sb", ":Telescope file_browser<CR>", { desc = "[S]earch File [B]rowser", noremap = true })
+vim.keymap.set("n", "<space>sc", ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+  { desc = "[S]earch with [C]urrent Buffer Path", noremap = true })
+vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = '[S]earch [F]ile' })
+vim.keymap.set("n", "<leader>sg", require("telescope.builtin").live_grep, { desc = '[S]earch by [G]rep' })
+vim.keymap.set("n", "<leader>sh", require("telescope.builtin").help_tags, { desc = '[S]earch [H]elp' })
+vim.keymap.set("n", "<leader>sw", require("telescope.builtin").grep_string, { desc = '[S]earch Current [W]ord' })
+vim.keymap.set("n", "<leader>sr", require("telescope.builtin").resume, { desc = '[S]earch [R]resume' })
 -- vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
--- vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
--- vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
--- vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
--- vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
--- vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
--- vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]resume' })
 
--- -- Diagnostic keymaps
--- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
--- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
--- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
--- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+-- [[ Termianl ]]
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+-- " Start terminal in insert mode
+-- " au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+-- " nnoremap <silent> <leader>tt :terminal<CR>
+-- " nnoremap <silent> <leader>tv :vnew<CR>:terminal<CR>
+-- " nnoremap <silent> <leader>th :new<CR>:terminal<CR>
+-- " tnoremap <C-x> <C-\><C-n><C-w>q
 
--- Setup neovim lua configuration
 require('neodev').setup()
+
+-- Not Supported with lazy.nvim
+-- vim.keymap.set('n', '<leader>cr', ':source $MYVIMRC<CR>', { desc = '[C]onfiguration [R]eload', silent = true })
+-- vim.keymap.set('n', '<leader>ce', ':e $MYVIMRC<CR>', { desc = '[C]onfiguration [E]dit', silent = true })
+
+-- redraw screan and clear search highlighted items
+-- http://stackoverflow.com/questions/657447/vim-clear-last-search-highlighting#answer-25569434
+-- nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+
+-- Keymaps for better default experience
+-- See `:help vim.keymap.set()`
+-- vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+-- Remap for dealing with word wrap
+-- vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- Setup neovim lua configuration
+
+-- [[ LSP formt on save ]]
+-- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 -- vim: ts=2 sts=2 sw=2 et
