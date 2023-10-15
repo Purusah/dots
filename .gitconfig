@@ -1,0 +1,4 @@
+[alias]
+	mr = push origin HEAD
+[init]
+	defaultBranch = main
