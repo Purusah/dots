@@ -63,11 +63,11 @@ require("lazy").setup({
   require 'purusah.plugins.indent_blankline',
   require 'purusah.plugins.lspconfig',
   require 'purusah.plugins.neotree',
+  require 'purusah.plugins.telescope',
   require 'purusah.plugins.theme-oxocarbon',
   require 'purusah.plugins.theme-tokyonight',
   require 'purusah.plugins.treesitter',
   require 'purusah.plugins.which_key',
-  require 'purusah.plugins.telescope',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping

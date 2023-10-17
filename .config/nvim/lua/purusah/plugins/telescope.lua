@@ -3,10 +3,9 @@ return {
   "nvim-telescope/telescope.nvim",
   branch = '0.1.x',
   dependencies = {
+    "nvim-telescope/telescope-file-browser.nvim",
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
-    "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope-file-browser.nvim",
     -- Fuzzy Finder Algorithm which requires local dependencies to be built.
     -- Only load if `make` is available. Make sure you have the system
     -- requirements installed.
@@ -20,12 +19,20 @@ return {
       end,
     },
   },
+  event = "VeryLazy",
   config = function()
     local actions = require("telescope.actions")
     local fb_actions = require("telescope").extensions.file_browser.actions
     local telescope = require("telescope")
     telescope.setup({
       defaults = {
+        layout_strategy = "center",
+        layout_config = {
+          center = {
+            preview_width = 0.9,
+            width = 0.9,
+          },
+        },
         mappings = {
           n = {
             ["q"] = actions.close
@@ -41,7 +48,7 @@ return {
           files = true,
           add_dirs = true,
           auto_depth = true,
-          select_buffer = false,
+          select_buffer = true,
           hidden = { file_browser = false, folder_browser = false },
           -- respect_gitignore = vim.fn.executable "fd" == 1,
           follow_symlinks = false,
@@ -56,10 +63,9 @@ return {
           display_stat = { date = true, size = true, mode = false },
           use_fd = true,
           git_status = true,
-          theme = "dropdown", -- ivy
+          theme = "ivy", -- "dropdown"
           -- disables netrw and use telescope-file-browser in its place
           hijack_netrw = true,
-          -- hijack_netrw = false,
           mappings = {
             ["i"] = {
               ["<A-c>"] = fb_actions.create,
