@@ -83,14 +83,14 @@ require("lazy").setup({
 
 -- set completeopt=menu,menuone,noselect
 vim.opt.background = "dark" -- set this to dark or light
-vim.cmd.colorscheme "tokyonight-moon"
+vim.cmd.colorscheme "tokyonight-day"
 -- vim.cmd.colorscheme "oxocarbon"
 
 vim.o.autoindent = true
 vim.o.encoding = 'UTF-8'
 -- vim.o.cursorcolumn = true
 vim.o.cursorline = true
-vim.o.foldlevel = 99 -- first usage of zc folds everything
+vim.o.scrolloff = 8
 vim.o.list = true
 vim.o.ruler = true
 vim.o.tabstop = 4
@@ -103,11 +103,17 @@ vim.o.undofile = true
 vim.tabstop = 4
 vim.softtabstop = 4
 vim.smarttab = 4
+-- set splitbelow                          " Horizontal splits will automatically be below
+-- set splitright                          " Vertical splits will automatically be to the right
+
+-- Window
+vim.o.title = true
 
 -- treesitter folding
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.o.foldlevel = 99 -- first usage of zc folds everything
 vim.o.foldmethod = 'expr'
 vim.o.nofoldenable = true
-vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- Make line numbers default
 vim.wo.number = true
