@@ -1,25 +1,27 @@
--- conform.lua
+-- Formatter
 
 return {
   'stevearc/conform.nvim',
   event = { "BufWritePre" },
   cmd = { "ConformInfo" },
+  keys = {
+    {
+      "<leader>f",
+      function()
+        require("conform").format({ async = true, lsp_fallback = true })
+      end,
+      mode = "",
+      desc = "Format buffer",
+    },
+  },
   opts = {
-    -- Map of filetype to formatters
-    --
     formatters_by_ft = {
       lua = { "stylua" },
-
-      -- Use a sub-list to run only the first available formatter
-      javascript = { { "prettier" } },
-      typescript = { { "prettier" } },
-
-      -- Use the "*" filetype to run formatters on all filetypes.
-      -- ["*"] = { "codespell" },
-
-      -- Use the "_" filetype to run formatters on filetypes that don't
-      -- have other formatters configured.
-      -- ["_"] = { "trim_whitespace" },
+      javascript = { { "prettier", "deno_fmt" } }, -- a sub-list to run only the first available formatter
+      typescript = { { "prettier", "deno_fmt" } },
+      rust = { { "rustfmt" } },
+      ["_"] = { "trim_whitespace" }, -- run formatters on filetypes that don't have other formatters configured
+      -- ["*"] = { "codespell" }, -- run formatters on all filetypes
     },
     -- If this is set, Conform will run the formatter on save.
     -- It will pass the table to conform.format().
@@ -35,9 +37,7 @@ return {
     format_after_save = {
       lsp_fallback = false,
     },
-    -- Set the log level. Use `:ConformInfo` to see the location of the log file.
-    log_level = vim.log.levels.ERROR,
-    -- Conform will notify you when a formatter errors
+    log_level = vim.log.levels.ERROR, -- use `:ConformInfo` to see the location of the log file.
     notify_on_error = true,
     -- Define custom formatters here
     formatters = {

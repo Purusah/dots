@@ -24,6 +24,7 @@ return {
         u = "List and Delete",
         v = "Vertical Split",
       },
+      f = "Format",
       g = {
         name = "LSP",
         D = "Type Definitions",
