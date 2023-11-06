@@ -83,7 +83,7 @@ require("lazy").setup({
 
 -- set completeopt=menu,menuone,noselect
 vim.opt.background = "dark" -- set this to dark or light
-vim.cmd.colorscheme "tokyonight-day"
+vim.cmd.colorscheme "tokyonight-moon"
 -- vim.cmd.colorscheme "oxocarbon"
 
 vim.o.autoindent = true
