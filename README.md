@@ -59,4 +59,5 @@ dots submodule update --init --recursive $HOME/
 * [Lua Language Server](https://luals.github.io/)
 * TypeScript LSP
 * See Telescope dependecy list
+* https://github.com/BurntSushi/ripgrep
 
