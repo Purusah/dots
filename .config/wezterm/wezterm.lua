@@ -50,12 +50,12 @@ config.keys = {
 	},
 	{
 		key = 'LeftArrow',
-		mods = 'CTRL|SHIFT',
+		mods = 'CTRL|ALT',
 		action = wezterm.action.ActivateTabRelative(-1),
 	},
 	{
 		key = 'RightArrow',
-		mods = 'CTRL|SHIFT',
+		mods = 'CTRL|ALT',
 		action = wezterm.action.ActivateTabRelative(1),
 	},
 	{
