@@ -13,7 +13,8 @@ end
 -- This is where you actually apply your config choices
 
 -- config.color_scheme = 'AdventureTime'
-config.color_scheme = 'Tokyo Night Moon'
+-- config.color_scheme = 'Tokyo Night Moon'
+config.color_scheme = 's3r0 modified (terminal.sexy)'
 config.font = wezterm.font 'JetBrainsMono-Regular'
 
 config.disable_default_key_bindings = true
