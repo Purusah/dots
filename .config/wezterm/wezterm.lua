@@ -94,6 +94,10 @@ config.keys = {
 		mods = 'CTRL|SHIFT',
 		action = wezterm.action.Search { CaseSensitiveString = "" },
 	},
+	-- Ctrl-Left to jump left
+	{ key = "LeftArrow",  mods = "CTRL", action = wezterm.action { SendString = "\x1bb" } },
+	-- Ctrl-Right to jump right
+	{ key = "RightArrow", mods = "CTRL", action = wezterm.action { SendString = "\x1bf" } },
 }
 -- and finally, return the configuration to wezterm
 return config
