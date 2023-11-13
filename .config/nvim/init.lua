@@ -65,6 +65,7 @@ require("lazy").setup({
   require 'purusah.plugins.neotree',
   require 'purusah.plugins.tabby',
   require 'purusah.plugins.telescope',
+  require 'purusah.plugins.theme-github',
   require 'purusah.plugins.theme-oxocarbon',
   require 'purusah.plugins.theme-tokyonight',
   require 'purusah.plugins.treesitter',
@@ -84,8 +85,10 @@ require("lazy").setup({
 
 -- set completeopt=menu,menuone,noselect
 vim.opt.background = "dark" -- set this to dark or light
-vim.cmd.colorscheme "tokyonight-moon"
+-- vim.cmd.colorscheme "tokyonight-moon"
 -- vim.cmd.colorscheme "oxocarbon"
+-- vim.cmd.colorscheme "github_dark"
+vim.cmd.colorscheme "slate"
 
 vim.o.autoindent = true
 vim.o.encoding = 'UTF-8'
