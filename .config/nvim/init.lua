@@ -15,7 +15,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- 'lukas-reineke/indent-blankline.nvim'
   -- 'tpope/vim-sleuth',-- Detect tabstop and shiftwidth automatically
 
   {
@@ -26,24 +25,7 @@ require("lazy").setup({
   },
 
   {
-    -- " airline
-    -- let g:airline_powerline_fonts = 1
-    -- if !exists('g:airline_symbols')
-    --     let g:airline_symbols = {}
-    -- endif
-    -- let g:airline_left_sep = ''
-    -- let g:airline_left_alt_sep = ''
-    -- let g:airline_right_sep = ''
-    -- let g:airline_right_alt_sep = ''
-    -- let g:airline_symbols.branch = ''
-    -- let g:airline_symbols.readonly = ''
-    -- let g:airline_symbols.linenr = ''
-    -- let g:airline_section_y = '' " hide file encoding information
-    -- let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-    -- 'https://github.com/vim-airline/vim-airline' " Status bar
-    -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
     opts = {
       options = {
         icons_enabled = true,
@@ -57,12 +39,12 @@ require("lazy").setup({
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
+  -- require 'purusah.plugins.neotree',
   require 'purusah.plugins.completion',
   require 'purusah.plugins.conform',
   require 'purusah.plugins.debug',
   require 'purusah.plugins.indent_blankline',
   require 'purusah.plugins.lspconfig',
-  require 'purusah.plugins.neotree',
   require 'purusah.plugins.tabby',
   require 'purusah.plugins.telescope',
   require 'purusah.plugins.theme-github',
@@ -85,14 +67,11 @@ require("lazy").setup({
 
 -- set completeopt=menu,menuone,noselect
 vim.opt.background = "dark" -- set this to dark or light
--- vim.cmd.colorscheme "tokyonight-moon"
--- vim.cmd.colorscheme "oxocarbon"
--- vim.cmd.colorscheme "github_dark"
-vim.cmd.colorscheme "slate"
+vim.cmd.colorscheme "slate" -- "tokyonight-moon", "oxocarbon", "github_dark"
 
 vim.o.autoindent = true
 vim.o.encoding = 'UTF-8'
--- vim.o.cursorcolumn = true
+vim.o.cursorcolumn = true
 vim.o.cursorline = true
 vim.o.scrolloff = 8
 vim.o.list = true
@@ -107,8 +86,8 @@ vim.o.undofile = true
 vim.tabstop = 4
 vim.softtabstop = 4
 vim.smarttab = 4
--- set splitbelow                          " Horizontal splits will automatically be below
--- set splitright                          " Vertical splits will automatically be to the right
+vim.splitbelow = true
+vim.splitright = true
 
 -- Window
 vim.o.title = true
