@@ -29,6 +29,19 @@ return {
         name = "LSP",
         D = "Type Definitions",
       },
+      h = {
+        name = "Git",
+        b = "[B]lame",
+        d = "[D]iff",
+        p = "[P]review Hunk",
+        r = "[R]eset Hunk",
+        s = "[S]tage Hunk",
+        u = "[U]ndo Stage Hunk",
+        B = "[B]lame Full",
+        D = "[D]iff ~",
+        R = "[R]eset Buffer",
+        S = "[S]tage Buffer",
+      },
       r = {
         name = "LSP",
         n = "Rename"
