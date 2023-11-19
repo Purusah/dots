@@ -15,8 +15,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- 'tpope/vim-sleuth',-- Detect tabstop and shiftwidth automatically
-
   {
     'rust-lang/rust.vim',
     config = function()
@@ -36,10 +34,8 @@ require("lazy").setup({
     },
   },
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
-
   -- require 'purusah.plugins.neotree',
+  require 'purusah.plugins.comment',
   require 'purusah.plugins.completion',
   require 'purusah.plugins.conform',
   require 'purusah.plugins.debug',
