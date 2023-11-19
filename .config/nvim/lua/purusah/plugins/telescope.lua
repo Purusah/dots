@@ -6,7 +6,10 @@ return {
     "nvim-telescope/telescope-file-browser.nvim",
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
-    -- Fuzzy Finder Algorithm which requires local dependencies to be built.
+    {
+      "nvim-telescope/telescope-live-grep-args.nvim",
+      version = "^1.0.0",
+    }, -- Fuzzy Finder Algorithm which requires local dependencies to be built.
     -- Only load if `make` is available. Make sure you have the system
     -- requirements installed.
     {
@@ -21,9 +24,10 @@ return {
   },
   event = "VeryLazy",
   config = function()
+    local telescope = require("telescope")
     local actions = require("telescope.actions")
     local fb_actions = require("telescope").extensions.file_browser.actions
-    local telescope = require("telescope")
+    local lga_actions = require("telescope-live-grep-args.actions")
     telescope.setup({
       defaults = {
         layout_strategy = "center",
@@ -102,9 +106,23 @@ return {
             },
           },
         },
+        live_grep_args = {
+          auto_quoting = true,
+          mappings = {
+            i = {
+              ["<C-k>"] = lga_actions.quote_prompt(),
+              ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+            },
+          },
+          -- ... also accepts theme settings, for example:
+          -- theme = "dropdown", -- use dropdown theme
+          -- theme = { }, -- use own theme spec
+          -- layout_config = { mirror=true }, -- mirror preview pane
+        }
       },
     })
     telescope.load_extension("file_browser")
+    telescope.load_extension("live_grep_args")
   end,
 }
 
