@@ -34,7 +34,6 @@ require("lazy").setup({
     },
   },
 
-  -- require 'purusah.plugins.neotree',
   require 'purusah.plugins.comment',
   require 'purusah.plugins.completion',
   require 'purusah.plugins.conform',
