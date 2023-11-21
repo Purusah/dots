@@ -1,7 +1,7 @@
 -- Formatter
 
 return {
-  'stevearc/conform.nvim',
+  "stevearc/conform.nvim",
   event = { "BufWritePre" },
   cmd = { "ConformInfo" },
   keys = {
@@ -77,8 +77,8 @@ return {
           command = "my_cmd",
         }
       end,
-    }
-  }
+    },
+  },
 }
 
 -- vim: ts=2 sts=2 sw=2 et

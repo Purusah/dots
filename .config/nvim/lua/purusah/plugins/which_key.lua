@@ -1,5 +1,5 @@
 return {
-  'folke/which-key.nvim',
+  "folke/which-key.nvim",
   config = function()
     local wk = require("which-key")
     -- As an example, we will create the following mappings:
@@ -44,7 +44,7 @@ return {
       },
       r = {
         name = "LSP",
-        n = "Rename"
+        n = "Rename",
       },
       s = {
         name = "[S]earch",

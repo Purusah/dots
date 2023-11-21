@@ -17,7 +17,7 @@ return {
         statusline = 1000,
         tabline = 1000,
         winbar = 1000,
-      }
+      },
     },
     sections = {
       lualine_a = { "mode" },
@@ -33,12 +33,12 @@ return {
       lualine_c = { "filename" },
       lualine_x = { "location" },
       lualine_y = {},
-      lualine_z = {}
+      lualine_z = {},
     },
     tabline = {},
     winbar = {},
     inactive_winbar = {},
-    extensions = {}
+    extensions = {},
   },
 }
 

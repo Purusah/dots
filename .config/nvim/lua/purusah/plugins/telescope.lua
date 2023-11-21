@@ -1,7 +1,7 @@
 -- Fuzzy Finder (files, lsp, etc)
 return {
   "nvim-telescope/telescope.nvim",
-  branch = '0.1.x',
+  branch = "0.1.x",
   dependencies = {
     "nvim-telescope/telescope-file-browser.nvim",
     "nvim-lua/plenary.nvim",
@@ -13,12 +13,12 @@ return {
     -- Only load if `make` is available. Make sure you have the system
     -- requirements installed.
     {
-      'nvim-telescope/telescope-fzf-native.nvim',
+      "nvim-telescope/telescope-fzf-native.nvim",
       -- NOTE: If you are having trouble with this installation,
       --       refer to the README for telescope-fzf-native for more instructions.
-      build = 'make',
+      build = "make",
       cond = function()
-        return vim.fn.executable 'make' == 1
+        return vim.fn.executable("make") == 1
       end,
     },
   },
@@ -39,7 +39,7 @@ return {
         },
         mappings = {
           n = {
-            ["q"] = actions.close
+            ["q"] = actions.close,
           },
         },
       },
@@ -118,7 +118,7 @@ return {
           -- theme = "dropdown", -- use dropdown theme
           -- theme = { }, -- use own theme spec
           -- layout_config = { mirror=true }, -- mirror preview pane
-        }
+        },
       },
     })
     telescope.load_extension("file_browser")
