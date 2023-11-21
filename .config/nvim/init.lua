@@ -18,7 +18,6 @@ require("lazy").setup({
   require("purusah.plugins.comment"),
   require("purusah.plugins.completion"),
   require("purusah.plugins.conform"),
-  require("purusah.plugins.debug"),
   require("purusah.plugins.gitsigns"),
   require("purusah.plugins.indent_blankline"),
   require("purusah.plugins.lspconfig"),
