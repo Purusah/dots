@@ -22,18 +22,6 @@ require("lazy").setup({
     end,
   },
 
-  {
-    'nvim-lualine/lualine.nvim',
-    opts = {
-      options = {
-        icons_enabled = true,
-        theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
-  },
-
   require 'purusah.plugins.comment',
   require 'purusah.plugins.completion',
   require 'purusah.plugins.conform',
@@ -41,6 +29,7 @@ require("lazy").setup({
   require 'purusah.plugins.gitsigns',
   require 'purusah.plugins.indent_blankline',
   require 'purusah.plugins.lspconfig',
+  require 'purusah.plugins.lualine',
   require 'purusah.plugins.tabby',
   require 'purusah.plugins.telescope',
   require 'purusah.plugins.theme-github',
