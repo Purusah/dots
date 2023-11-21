@@ -36,7 +36,7 @@ require("lazy").setup({
 -- See `:help vim.o`
 
 -- set completeopt=menu,menuone,noselect
-vim.opt.background = "dark" -- set this to dark or light
+vim.opt.background = "dark"  -- set this to dark or light
 vim.cmd.colorscheme("slate") -- "tokyonight-moon", "oxocarbon", "github_dark"
 
 vim.o.autoindent = true
@@ -178,6 +178,7 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 require("neodev").setup()
 
+-- vim.keymap.set("n", "<C-b>", function() require("fidget").notify("This is from fidget.notify()!") end)
 -- Not Supported with lazy.nvim
 -- vim.keymap.set('n', '<leader>cr', ':source $MYVIMRC<CR>', { desc = '[C]onfiguration [R]eload', silent = true })
 -- vim.keymap.set('n', '<leader>ce', ':e $MYVIMRC<CR>', { desc = '[C]onfiguration [E]dit', silent = true })

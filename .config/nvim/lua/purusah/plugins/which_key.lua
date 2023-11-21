@@ -25,10 +25,6 @@ return {
         v = "Vertical Split",
       },
       f = "Format",
-      g = {
-        name = "LSP",
-        D = "Type Definitions",
-      },
       h = {
         name = "Git",
         b = "[B]lame",
@@ -42,10 +38,6 @@ return {
         R = "[R]eset Buffer",
         S = "[S]tage Buffer",
       },
-      r = {
-        name = "LSP",
-        n = "Rename",
-      },
       s = {
         name = "[S]earch",
         b = "File [B]rowser",
@@ -58,16 +50,6 @@ return {
         w = "Current [W]ord",
       },
     }, { prefix = "<leader>" })
-
-    wk.register({
-      g = {
-        name = "LSP",
-        D = "Declarations",
-        d = "Definitions",
-        i = "Implementations",
-        r = "References",
-      },
-    }, { prefix = "" })
   end,
 }
 
