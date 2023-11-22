@@ -176,8 +176,6 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 -- " nnoremap <silent> <leader>th :new<CR>:terminal<CR>
 -- " tnoremap <C-x> <C-\><C-n><C-w>q
 
-require("neodev").setup()
-
 -- vim.keymap.set("n", "<C-b>", function() require("fidget").notify("This is from fidget.notify()!") end)
 -- Not Supported with lazy.nvim
 -- vim.keymap.set('n', '<leader>cr', ':source $MYVIMRC<CR>', { desc = '[C]onfiguration [R]eload', silent = true })
