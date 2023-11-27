@@ -18,7 +18,7 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
       javascript = { { "prettier", "deno_fmt" } }, -- a sub-list to run only the first available formatter
-      typescript = { { "prettier", "deno_fmt" } },
+      typescript = { { "prettier", "eslint", "deno_fmt" } },
       rust = { { "rustfmt" } },
       ["_"] = { "trim_whitespace" }, -- run formatters on filetypes that don't have other formatters configured
       -- ["*"] = { "codespell" }, -- run formatters on all filetypes
