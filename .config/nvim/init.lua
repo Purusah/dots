@@ -18,6 +18,7 @@ require("lazy").setup({
   require("purusah.plugins.comment"),
   require("purusah.plugins.completion"),
   require("purusah.plugins.conform"),
+  require("purusah.plugins.copilot"),
   require("purusah.plugins.gitsigns"),
   require("purusah.plugins.indent_blankline"),
   require("purusah.plugins.lspconfig"),
@@ -36,7 +37,7 @@ require("lazy").setup({
 -- See `:help vim.o`
 
 -- set completeopt=menu,menuone,noselect
-vim.opt.background = "dark"  -- set this to dark or light
+vim.opt.background = "dark" -- set this to dark or light
 vim.cmd.colorscheme("slate") -- "tokyonight-moon", "oxocarbon", "github_dark"
 
 vim.o.autoindent = true
