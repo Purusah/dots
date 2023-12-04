@@ -116,7 +116,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- [[ File Browser ]]
 -- Auto start when opening a directory
 vim.cmd([[autocmd StdinReadPre * let s:std_in=1]])
-vim.cmd([[autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | exe 'Telescope file_browser' | endif]]) -- exe 'Neotree'
+vim.cmd(
+  [[autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | exe "lua require('telescope').extensions.file_browser.file_browser()" | endif]]
+) -- exe 'Neotree'
 
 -- [[ Keymaps.Jump ]]
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Jump Half Page Down and Center" })
@@ -133,32 +135,6 @@ vim.keymap.set("n", "<leader>bs", ":ls<CR>:buffer<Space>", { desc = "Buffer: lis
 vim.keymap.set("n", "<leader>bu", ":ls<CR>:bdelete<Space>", { desc = "Buffer: list and delete", silent = true })
 vim.keymap.set("n", "<leader>bv", ":vnew<CR>", { desc = "Buffer: vertical split", silent = true })
 -- " nnoremap <silent> <leader>bk :bd!<CR> -- kill buffer
-
--- [[ Keymaps.Telescope ]]
--- vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
--- vim.keymap.set('n', '<leader>/', function()
---   -- You can pass additional configuration to telescope to change theme, layout, etc.
---   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
---     winblend = 10,
---     previewer = false,
---   })
--- end, { desc = '[/] Fuzzily search in current buffer' })
-vim.keymap.set("n", "<leader><leader>", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" })
-vim.keymap.set("n", "<leader>sb", ":Telescope file_browser<CR>", { desc = "[S]earch File [B]rowser", noremap = true })
-vim.keymap.set(
-  "n",
-  "<space>sc",
-  ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-  { desc = "[S]earch with [C]urrent Buffer Path", noremap = true }
-)
-vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
-vim.keymap.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "[S]earch [F]ile" })
-vim.keymap.set("n", "<leader>sg", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
-vim.keymap.set("n", "<leader>sh", require("telescope.builtin").help_tags, { desc = "[S]earch [H]elp" })
-vim.keymap.set("n", "<leader>sw", require("telescope.builtin").grep_string, { desc = "[S]earch Current [W]ord" })
-vim.keymap.set("n", "<leader>sr", require("telescope.builtin").resume, { desc = "[S]earch [R]resume" })
-vim.keymap.set("n", "<leader>ss", require("telescope.builtin").git_status, { desc = "[S]earch Git [S]tatus" })
--- vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 
 -- [[ Tabby]]
 vim.api.nvim_set_keymap("n", "<leader>ta", ":$tabnew<CR>", { noremap = true, desc = "[T]ab [A]dd" })
@@ -186,15 +162,6 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 -- redraw screan and clear search highlighted items
 -- http://stackoverflow.com/questions/657447/vim-clear-last-search-highlighting#answer-25569434
 -- nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
--- vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
--- Remap for dealing with word wrap
--- vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
--- vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
--- Setup neovim lua configuration
 
 -- [[ LSP formt on save ]]
 -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

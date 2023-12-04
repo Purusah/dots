@@ -23,6 +23,29 @@ return {
     },
   },
   event = "VeryLazy",
+  keys = {
+    { "<leader><leader>", "<cmd>lua require('telescope.builtin').buffers()<CR>", desc = "[ ] Find existing buffers" },
+    { "<leader>sb", ":Telescope file_browser<CR>", desc = "[S]earch File [B]rowser" },
+    { "<leader>sd", "<cmd>lua require('telescope.builtin').diagnostics()<CR>", desc = "[S]earch [D]iagnostics" },
+    { "<leader>sf", "<cmd>lua require('telescope.builtin').find_files()<CR>", desc = "[S]earch [F]ile" },
+    { "<leader>sg", "<cmd>lua require('telescope.builtin').live_grep()<CR>", desc = "[S]earch by [G]rep" },
+    { "<leader>sw", "<cmd>lua require('telescope.builtin').grep_string()<CR>", desc = "[S]earch Current [W]ord" },
+    { "<space>sc", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", desc = "[S]earch from [C]urrent Path" },
+    { "<leader>ss", "<cmd>lua require('telescope.builtin').git_status()<CR>", desc = "[S]earch Git [S]tatus" },
+    { "<leader>sh", "<cmd>lua require('telescope.builtin').help_tags()<CR>", desc = "[S]earch [H]elp" },
+    { "<leader>sr", "<cmd>lua require('telescope.builtin').resume()<CR>", desc = "[S]earch [R]resume" },
+    { "<leader>?", "<cmd> lua require('telescope.builtin').oldfiles()<CR>", desc = "[?] Recently Opened Files" },
+    {
+      "<leader>/",
+      function()
+        require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+          winblend = 10,
+          previewer = false,
+        }))
+      end,
+      desc = "[/] Fuzzily search in current buffer",
+    },
+  },
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
