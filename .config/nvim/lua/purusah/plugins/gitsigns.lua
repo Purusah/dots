@@ -1,6 +1,30 @@
 return {
   "lewis6991/gitsigns.nvim",
   dependencies = {},
+  keys = {
+    { "]c", "<Plug>(gitsigns-next-hunk)", desc = "Git: Next Hunk" },
+    { "[c", "<Plug>(gitsigns-prev-hunk)", desc = "Git: Previous Hunk" },
+    { "<leader>hb", "<cmd>lua require('gitsigns').toggle_current_line_blame()<CR>", desc = "Git: Toggle Line Blance" },
+    { "<leader>hd", "<cmd>lua require('gitsigns').diffthis()<CR>", desc = "Git: Diff This" },
+    { "<leader>hp", "<cmd>lua require('gitsigns').preview_hunk()<CR>", desc = "Git: Preview Hunk" },
+    { "<leader>hr", "<cmd>lua require('gitsigns').reset_hunk()<CR>", desc = "Git: Reset Hunk" },
+    { "<leader>hs", "<cmd>lua require('gitsigns').stage_hunk()<CR>", desc = "Git: Stage Hunk" },
+    { "<leader>hu", "<cmd>lua require('gitsigns').undo_stage_hunk()<CR>", desc = "Git: Undo Stage Hunk" },
+    { "<leader>hB", "<cmd>lua require('gitsigns').blame_line(true)<CR>", desc = "Git: Blame Line" },
+    { "<leader>hD", "<cmd>lua require('gitsigns').diffthis('~')<CR>", desc = "Git: Diff Root" },
+    { "<leader>hR", "<cmd>lua require('gitsigns').reset_buffer()<CR>", desc = "Git: Reset Buffer" },
+    { "<leader>hS", "<cmd>lua require('gitsigns').stage_buffer()<CR>", desc = "Git: Stage Buffer" },
+    {
+      "<leader>hs",
+      "<cmd>lua require('gitsigns').stage_hunk({vim.fn.line('.'), vim.fn.line('v')})<CR>",
+      desc = "Git: Stage Hunk in Line",
+    },
+    {
+      "<leader>hr",
+      "<cmd>lua require('gitsigns').reset_hunk({vim.fn.line('.'), vim.fn.line('v')})<CR>",
+      desc = "Git: Reset Hunk in Line",
+    },
+  },
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
 
