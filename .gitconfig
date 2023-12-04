@@ -1,4 +1,5 @@
 [alias]
 	mr = push origin HEAD
+	mrf = push -f origin HEAD
 [init]
 	defaultBranch = main
