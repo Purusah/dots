@@ -4,6 +4,7 @@ return {
   branch = "0.1.x",
   dependencies = {
     "nvim-telescope/telescope-file-browser.nvim",
+    "nvim-telescope/telescope-ui-select.nvim",
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
     {
@@ -147,10 +148,14 @@ return {
           -- theme = { }, -- use own theme spec
           -- layout_config = { mirror=true }, -- mirror preview pane
         },
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown({}),
+        },
       },
     })
     telescope.load_extension("file_browser")
     telescope.load_extension("live_grep_args")
+    telescope.load_extension("ui-select")
   end,
 }
 
