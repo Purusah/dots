@@ -19,9 +19,6 @@ disabled=true
 [crystal]
 disabled=true
 
-[cobol]
-disabled=true
-
 [dart]
 disabled=true
 
@@ -32,9 +29,6 @@ disabled=true
 disabled=true
 
 [elm]
-disabled=true
-
-[erlang]
 disabled=true
 
 [gcloud]
@@ -95,9 +89,6 @@ disabled=true
 disabled=true
 
 [purescript]
-disabled=true
-
-[rlang]
 disabled=true
 
 [red]
