@@ -38,7 +38,7 @@ require("lazy").setup({
 
 -- set completeopt=menu,menuone,noselect
 vim.opt.background = "dark" -- set this to dark or light
-vim.cmd.colorscheme("slate") -- "tokyonight-moon", "oxocarbon", "github_dark"
+require("purusah.configs.colorscheme")
 
 vim.o.autoindent = true
 vim.o.encoding = "UTF-8"
