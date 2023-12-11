@@ -1,6 +1,6 @@
 vim.cmd.colorscheme("slate")
 
-if vim.fn.filereadable(vim.fs.dirname(vim.env.MYVIMRC) .. "/lua/purusah/configs/colorscheme-my.lua") then
+if vim.fn.filereadable(vim.fs.dirname(vim.env.MYVIMRC) .. "/lua/purusah/configs/colorscheme-my.lua") == 1 then
   require("purusah.configs.colorscheme-my")
 end
 
