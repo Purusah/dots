@@ -59,11 +59,12 @@ return {
     local lga_actions = require("telescope-live-grep-args.actions")
     telescope.setup({
       defaults = {
+        theme = "center",
         layout_strategy = "center",
         layout_config = {
           center = {
-            preview_width = 0.9,
             width = 0.9,
+            prompt_position = "bottom",
           },
         },
         mappings = {
@@ -96,7 +97,6 @@ return {
           display_stat = { date = true, size = true, mode = false },
           use_fd = true,
           git_status = true,
-          theme = "ivy", -- "dropdown"
           -- disables netrw and use telescope-file-browser in its place
           hijack_netrw = true,
           mappings = {
