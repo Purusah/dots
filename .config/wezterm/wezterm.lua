@@ -12,9 +12,16 @@ end
 
 -- This is where you actually apply your config choices
 
--- config.color_scheme = 'AdventureTime'
--- config.color_scheme = 'Tokyo Night Moon'
-config.color_scheme = "s3r0 modified (terminal.sexy)"
+local is_colorsheme_imported, my_colorscheme = pcall(require, "lua.colorscheme_my")
+if is_colorsheme_imported then
+  config.color_scheme = my_colorscheme.colorscheme
+else
+  -- config.color_scheme = "AdventureTime"
+  -- config.color_scheme = "Tokyo Night Moon"
+  -- config.color_scheme = "ToyChest"
+  config.color_scheme = "s3r0 modified (terminal.sexy)"
+end
+
 config.font = wezterm.font("JetBrainsMono-Regular")
 
 config.disable_default_key_bindings = true
