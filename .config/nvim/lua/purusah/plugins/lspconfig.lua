@@ -3,6 +3,19 @@ return {
   dependencies = {
     { "j-hui/fidget.nvim", opts = {} },
   },
+  event = "BufEnter",
+  keys = {
+    { "gr", ":Telescope lsp_references<CR>", desc = "LSP: [G]oto [R]eferences" }, -- vim.lsp.buf.references
+    { "<leader>k", vim.lsp.buf.hover, desc = "LSP: Hover Documentation" },
+    { "<leader>ca", vim.lsp.buf.code_action, desc = "LSP: [C]ode [A]ction" },
+    {
+      "<leader>rn",
+      function()
+        vim.lsp.buf.rename()
+      end,
+      "LSP: [R]e[n]ame",
+    },
+  },
   config = function()
     local on_attach = function(client, bufnr)
       vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -18,29 +31,23 @@ return {
       -- See `:help vim.lsp.*` for documentation on any of the below functions
       nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
       nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-      nmap("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
+      nmap("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
       nmap("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementaion")
       nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Help")
-      nmap("<leader>K", vim.lsp.buf.hover, "Hover Documentation")
       nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition") --
+      -- nmap("<leader>f", function()
+      --   vim.lsp.buf.format({ async = true })
+      -- end, "[F]ormat")
+      nmap("<leader>e", vim.diagnostic.open_float, "Open Diagnostic")
+      nmap("[d", vim.diagnostic.goto_prev, "Goto Previous Diagnostic")
+      nmap("]d", vim.diagnostic.goto_next, "Goto Next Diagnostic")
+      nmap("<leader>q", vim.diagnostic.setloclist, "Diagnostic ?")
+
       -- nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
       -- nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
       -- nmap("<leader>wl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, "[W]orkspace [L]ist Folders")
-      nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-      nmap("<leader>f", function()
-        vim.lsp.buf.format({ async = true })
-      end, "[F]ormat")
-      nmap("<leader>rn", function()
-        vim.lsp.buf.rename()
-      end, "[R]e[n]ame") --
-      nmap("<space>e", vim.diagnostic.open_float, "Open Diagnostic")
-      nmap("[d", vim.diagnostic.goto_prev, "Goto Previous Diagnostic")
-      nmap("]d", vim.diagnostic.goto_next, "Goto Next Diagnostic")
-      nmap("<space>q", vim.diagnostic.setloclist, "Diagnostic ?")
-      --   nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-      --   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-      --   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-      --   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+      -- nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+      -- nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
     end
 
     require("lspconfig").denols.setup({
