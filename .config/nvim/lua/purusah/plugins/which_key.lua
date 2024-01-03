@@ -5,40 +5,21 @@ return {
     wk.register({
       b = {
         name = "Buffer",
-        b = "Toggle",
-        d = "Delete",
-        h = "Horizontal Split",
-        l = "List",
-        n = "Next",
-        p = "Previous",
-        s = "List and Select",
-        u = "List and Delete",
-        v = "Vertical Split",
       },
-      f = "Format",
+      l = {
+        name = "LSP",
+      },
       h = {
-        name = "Git",
-        b = "[B]lame",
-        d = "[D]iff",
-        p = "[P]review Hunk",
-        r = "[R]eset Hunk",
-        s = "[S]tage Hunk",
-        u = "[U]ndo Stage Hunk",
-        B = "[B]lame Full",
-        D = "[D]iff ~",
-        R = "[R]eset Buffer",
-        S = "[S]tage Buffer",
+        name = "Git Hunk",
       },
       s = {
         name = "[S]earch",
-        b = "File [B]rowser",
-        c = "With [C]urrent Buffer Path",
-        d = "[D]iagnostics",
-        f = "[F]ile",
-        g = "By [G]rep",
-        h = "[H]elp",
-        r = "[R]esume",
-        w = "Current [W]ord",
+      },
+      t = {
+        name = "[T]abs",
+      },
+      v = {
+        name = "VCS: Git",
       },
     }, { prefix = "<leader>" })
 
