@@ -26,7 +26,7 @@ return {
   event = "VeryLazy",
   keys = {
     { "<leader><leader>", "<cmd>lua require('telescope.builtin').buffers()<CR>", desc = "Show Open Buffers" },
-    { "<leader>ld", "<cmd>lua require('telescope.builtin').diagnostics()<CR>", desc = "LSP: [D]iagnostics" },
+    { "<leader>lD", "<cmd>lua require('telescope.builtin').diagnostics()<CR>", desc = "LSP: [D]iagnostics" },
     { "<leader>lr", ":Telescope lsp_references<CR>", desc = "LSP: [R]eferences" }, -- vim.lsp.buf.references
     {
       "<leader>fc",

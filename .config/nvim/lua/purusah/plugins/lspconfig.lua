@@ -7,6 +7,7 @@ return {
   keys = {
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     { "<leader>la", vim.lsp.buf.code_action, desc = "LSP: Code [A]ction" },
+    { "<leader>ld", vim.lsp.buf.definition, desc = "LSP: [D]efinition" },
     { "<leader>lh", vim.lsp.buf.hover, desc = "LSP: [H]over Documentation" },
     {
       "<leader>ln",
@@ -17,7 +18,6 @@ return {
     },
     -- { "<C-k>", vim.lsp.buf.signature_help, desc = "LSP: Signature Help" },
     -- { "gD", vim.lsp.buf.declaration, desc = "[G]oto [D]eclaration" },
-    -- { "gd", vim.lsp.buf.definition, desc = "[G]oto [D]efinition" },
     -- { "gi", vim.lsp.buf.implementation, desc = "[G]oto [I]mplementaion" },
     -- { "<leader>D", vim.lsp.buf.type_definition, desc = "Type [D]efinition" },
     -- { "<leader>e", vim.diagnostic.open_float, desc = "Open Diagnostic" },
