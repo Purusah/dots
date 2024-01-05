@@ -19,6 +19,7 @@ require("lazy").setup({
   require("purusah.plugins.completion"),
   require("purusah.plugins.conform"),
   require("purusah.plugins.copilot"),
+  require("purusah.plugins.diffview"),
   require("purusah.plugins.gitsigns"),
   require("purusah.plugins.indent_blankline"),
   require("purusah.plugins.lspconfig"),
