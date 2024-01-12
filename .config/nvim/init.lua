@@ -119,7 +119,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.cmd([[autocmd StdinReadPre * let s:std_in=1]])
 vim.cmd(
   [[autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | exe "lua require('telescope').extensions.file_browser.file_browser()" | endif]]
-) -- exe 'Neotree'
+)
 
 -- [[ Keymaps.Jump ]]
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Jump Half Page Down and Center" })
@@ -167,4 +167,10 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 -- [[ LSP formt on save ]]
 -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
+-- lua for nvim: https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
+-- print(vim.opt.autoindent)
+-- print(vim.opt.autoindent:get())
+-- print(vim.inspect(vim.opt.autoindent))
+-- :lua = vim.opt.autoindent
+--
 -- vim: ts=2 sts=2 sw=2 et
