@@ -31,6 +31,7 @@ require("lazy").setup({
   require("purusah.plugins.theme-tokyonight"),
   require("purusah.plugins.treesitter"),
   require("purusah.plugins.which_key"),
+  require("purusah.plugins.vim-illuminate"),
   -- { import = 'purusah.plugins' },
 }, {})
 
