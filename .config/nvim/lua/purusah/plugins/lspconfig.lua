@@ -9,6 +9,7 @@ return {
     { "<leader>la", vim.lsp.buf.code_action, desc = "LSP: Code [A]ction" },
     { "<leader>ld", vim.lsp.buf.definition, desc = "LSP: [D]efinition" },
     { "<leader>lh", vim.lsp.buf.hover, desc = "LSP: [H]over Documentation" },
+    { "<leader>li", vim.lsp.buf.implementation, desc = "LSP: [I]mplementaion" },
     {
       "<leader>ln",
       function()
@@ -18,7 +19,6 @@ return {
     },
     -- { "<C-k>", vim.lsp.buf.signature_help, desc = "LSP: Signature Help" },
     -- { "gD", vim.lsp.buf.declaration, desc = "[G]oto [D]eclaration" },
-    -- { "gi", vim.lsp.buf.implementation, desc = "[G]oto [I]mplementaion" },
     -- { "<leader>D", vim.lsp.buf.type_definition, desc = "Type [D]efinition" },
     -- { "<leader>e", vim.diagnostic.open_float, desc = "Open Diagnostic" },
     -- { "[d", vim.diagnostic.goto_prev, desc = "Goto Previous Diagnostic" },
