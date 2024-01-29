@@ -1,14 +1,18 @@
 return {
   "RRethy/vim-illuminate",
   dependencies = {},
-  setup = {
+  keys = {
+    { "]]", desc = "Next Reference" },
+    { "[[", desc = "Prev Reference" },
+  },
+  opts = {
     providers = {
       "lsp",
       "treesitter",
       "regex",
     },
     -- delay: delay in milliseconds
-    delay = 100,
+    delay = 200,
     -- filetype_overrides: filetype specific overrides.
     -- The keys are strings to represent the filetype while the values are tables that
     -- supports the same keys passed to .configure except for filetypes_denylist and filetypes_allowlist
@@ -32,6 +36,27 @@ return {
     -- case_insensitive_regex: sets regex case sensitivity
     case_insensitive_regex = false,
   },
+  config = function(_, opts)
+    require("illuminate").configure(opts)
+
+    local function map(key, dir, buffer)
+      vim.keymap.set("n", key, function()
+        require("illuminate")["goto_" .. dir .. "_reference"](true)
+      end, { desc = dir:sub(1, 1):upper() .. dir:sub(2) .. " Reference", buffer = buffer })
+    end
+
+    map("]]", "next")
+    map("[[", "prev")
+
+    -- also set it after loading ftplugins, since a lot overwrite [[ and ]]
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function()
+        local buffer = vim.api.nvim_get_current_buf()
+        map("]]", "next", buffer)
+        map("[[", "prev", buffer)
+      end,
+    })
+  end,
 }
 
 -- vim: ts=2 sts=2 sw=2 et
