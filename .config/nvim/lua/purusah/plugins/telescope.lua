@@ -64,6 +64,7 @@ return {
     local actions = require("telescope.actions")
     local fb_actions = require("telescope").extensions.file_browser.actions
     local lga_actions = require("telescope-live-grep-args.actions")
+    vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
     telescope.setup({
       defaults = {
         theme = "center",
