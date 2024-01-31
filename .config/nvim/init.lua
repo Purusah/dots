@@ -24,7 +24,6 @@ require("lazy").setup({
   require("purusah.plugins.indent_blankline"),
   require("purusah.plugins.lspconfig"),
   require("purusah.plugins.lualine"),
-  require("purusah.plugins.tabby"),
   require("purusah.plugins.telescope"),
   require("purusah.plugins.theme-github"),
   require("purusah.plugins.theme-oxocarbon"),
