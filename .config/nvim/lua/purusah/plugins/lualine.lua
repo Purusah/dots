@@ -35,7 +35,25 @@ return {
       lualine_y = {},
       lualine_z = {},
     },
-    tabline = {},
+    tabline = {
+      lualine_a = {
+        {
+          "tabs",
+          mode = 2,
+          use_mode_colors = true,
+        },
+      },
+      lualine_b = {},
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {
+        {
+          "buffers",
+          mode = 4,
+        },
+      },
+    },
     winbar = {},
     inactive_winbar = {},
     extensions = {},
