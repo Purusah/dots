@@ -137,8 +137,8 @@ vim.keymap.set("n", "<leader>bu", ":ls<CR>:bdelete<Space>", { desc = "Buffer: li
 vim.keymap.set("n", "<leader>bv", ":vnew<CR>", { desc = "Buffer: vertical split", silent = true })
 -- " nnoremap <silent> <leader>bk :bd!<CR> -- kill buffer
 
--- [[ Tabby]]
-vim.api.nvim_set_keymap("n", "<leader>ta", ":$tabnew<CR>", { noremap = true, desc = "[T]ab [A]dd" })
+-- [[ Tabs ]]
+vim.api.nvim_set_keymap("n", "<leader>ta", ":$tabnew %<CR>", { noremap = true, desc = "[T]ab [A]dd" })
 vim.api.nvim_set_keymap("n", "<leader>tc", ":tabclose<CR>", { noremap = true, desc = "[T]ab [C]lose" })
 vim.api.nvim_set_keymap("n", "<leader>to", ":tabonly<CR>", { noremap = true, desc = "[T]ab [O]nly" })
 vim.api.nvim_set_keymap("n", "<leader>tn", ":tabn<CR>", { noremap = true, desc = "[T]ab Select [N]ext" })
