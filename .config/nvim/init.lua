@@ -15,23 +15,23 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  require("purusah.plugins.comment"),
-  require("purusah.plugins.completion"),
-  require("purusah.plugins.conform"),
-  require("purusah.plugins.copilot"),
-  require("purusah.plugins.diffview"),
-  require("purusah.plugins.gitsigns"),
-  require("purusah.plugins.indent_blankline"),
-  require("purusah.plugins.lspconfig"),
-  require("purusah.plugins.lualine"),
-  require("purusah.plugins.telescope"),
-  require("purusah.plugins.theme-github"),
-  require("purusah.plugins.theme-oxocarbon"),
-  require("purusah.plugins.theme-tokyonight"),
-  require("purusah.plugins.treesitter"),
-  require("purusah.plugins.which_key"),
-  require("purusah.plugins.vim-illuminate"),
-  -- { import = 'purusah.plugins' },
+  require("plugins.comment"),
+  require("plugins.completion"),
+  require("plugins.conform"),
+  require("plugins.copilot"),
+  require("plugins.diffview"),
+  require("plugins.gitsigns"),
+  require("plugins.indent_blankline"),
+  require("plugins.lspconfig"),
+  require("plugins.lualine"),
+  require("plugins.telescope"),
+  require("plugins.theme-github"),
+  require("plugins.theme-oxocarbon"),
+  require("plugins.theme-tokyonight"),
+  require("plugins.treesitter"),
+  require("plugins.which_key"),
+  require("plugins.vim-illuminate"),
+  -- { import = 'plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -39,7 +39,7 @@ require("lazy").setup({
 
 -- set completeopt=menu,menuone,noselect
 vim.opt.background = "dark" -- set this to dark or light
-require("purusah.configs.colorscheme")
+require("configs.colorscheme")
 
 vim.o.autoindent = true
 vim.o.encoding = "UTF-8"
