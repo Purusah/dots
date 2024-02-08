@@ -1,11 +1,11 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
--- set completeopt=menu,menuone,noselect
 vim.o.autoindent = true
-vim.o.encoding = "UTF-8"
+vim.o.autowrite = true
 vim.o.cursorcolumn = true
 vim.o.cursorline = true
+vim.o.encoding = "UTF-8"
 vim.o.scrolloff = 8
 vim.o.list = true
 vim.o.ruler = true
@@ -14,6 +14,7 @@ vim.o.shiftwidth = 4
 vim.o.showcmd = true
 vim.o.showmode = true
 vim.o.syntax = "enable"
+vim.o.smartindent = true
 vim.o.undodir = vim.fn.expand("~/.cache/nvim/undodir")
 vim.o.undofile = true
 vim.tabstop = 4
@@ -21,6 +22,7 @@ vim.softtabstop = 4
 vim.smarttab = 4
 vim.splitbelow = true
 vim.splitright = true
+vim.o.wrap = false
 
 -- Window
 vim.o.title = true

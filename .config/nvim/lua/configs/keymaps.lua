@@ -22,6 +22,28 @@ vim.api.nvim_set_keymap("n", "<leader>tn", ":tabn<CR>", { noremap = true, desc =
 vim.api.nvim_set_keymap("n", "<leader>tp", ":tabp<CR>", { noremap = true, desc = "[T]ab Select [P]revious" })
 vim.api.nvim_set_keymap("n", "<leader>tmp", ":-tabmove<CR>", { noremap = true, desc = "[T]ab [M]ove to [P]revious" })
 vim.api.nvim_set_keymap("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true, desc = "[T]ab [M]ove to [N]ext" })
+-- vim.api.nvim_set_keymap("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
+-- vim.api.nvim_set_keymap("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
+-- vim.api.nvim_set_keymap("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
+-- vim.api.nvim_set_keymap("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+-- vim.api.nvim_set_keymap("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+-- vim.api.nvim_set_keymap("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+
+-- windows
+-- vim.api.nvim_set_keymap("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>wd", "<C-W>c", { desc = "Delete window", remap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>w-", "<C-W>s", { desc = "Split window below", remap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>w|", "<C-W>v", { desc = "Split window right", remap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
+
+-- Move lines
+vim.api.nvim_set_keymap("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+vim.api.nvim_set_keymap("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+vim.api.nvim_set_keymap("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+vim.api.nvim_set_keymap("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+vim.api.nvim_set_keymap("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+vim.api.nvim_set_keymap("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- [[ Termianl ]]
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
