@@ -25,6 +25,7 @@ end
 
 config.font = wezterm.font("JetBrainsMono-Regular")
 config.window_background_opacity = 0.8
+config.font_size = 14.0
 
 local maybe_background_image = wezterm.glob(default_image_path, wezterm.config_dir)[1]
 if maybe_background_image then
