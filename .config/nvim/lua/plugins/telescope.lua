@@ -81,6 +81,15 @@ return {
           },
         },
       },
+      pickers = {
+        buffers = {
+          mappings = {
+            i = {
+              ["<c-d>"] = actions.delete_buffer,
+            },
+          },
+        },
+      },
       extensions = {
         file_browser = {
           path = vim.loop.cwd(),
