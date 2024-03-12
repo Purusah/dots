@@ -23,6 +23,7 @@ else
   config.color_scheme = "s3r0 modified (terminal.sexy)"
 end
 
+config.animation_fps = 24
 config.font = wezterm.font("JetBrainsMono-Regular")
 config.window_background_opacity = 0.8
 config.font_size = 14.0
