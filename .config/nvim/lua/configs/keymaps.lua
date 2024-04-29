@@ -1,6 +1,17 @@
 -- save file
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
+-- smart dd
+-- https://github.com/Abstract-IDE/abstract-autocmds/blob/main/lua/abstract-autocmds/mappings.lua#L7
+local dd = function()
+  if vim.api.nvim_get_current_line():match("^%s*$") then
+    return "\"_dd"
+  else
+    return "dd"
+  end
+end
+vim.keymap.set("n", "dd", dd, { noremap = true, expr = true })
+
 -- [[ Jump ]]
 -- vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Jump Half Page Down and Center" })
 -- vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Jump Half Page Up and Center" })
