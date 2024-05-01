@@ -1,4 +1,4 @@
--- copied from https://gist.github.com/ChHaeni/b15938c2f41b178f476b1bc4cecc0271
+-- copied from https://gist.github.com/hHaeni/b15938c2f41b178f476b1bc4cecc0271
 local function iterlines(s)
   if s:sub(-1) ~= "\n" then
     s = s .. "\n"
@@ -192,7 +192,8 @@ return {
           { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
           {
             "filename",
-            symbols = { modified = "  ", readonly = "", unnamed = "" },
+            symbols = { modified = "  ", readonly = " 🔒" },
+            path = 4,
           },
           {
             "diagnostics",
@@ -215,9 +216,10 @@ return {
           },
         },
         lualine_z = {
-          function()
-            return "  " .. os.date("%X") .. " 🚀 "
-          end,
+          {
+            "datetime",
+            style = "  %H:%M ❤️",
+          },
         },
       },
 
@@ -236,6 +238,15 @@ return {
             max_length = vim.o.columns * 2 / 3,
             mode = 2,
             use_mode_colors = true,
+            fmt = function(name, context)
+              local parent_dir = vim.fs.basename(vim.fs.dirname(vim.fn.expand("%")))
+
+              if parent_dir == "." then
+                return name
+              end
+
+              return parent_dir .. "/" .. name
+            end,
           },
         },
         lualine_b = {},
