@@ -95,7 +95,14 @@ return {
             mode = 2,
             use_mode_colors = true,
             fmt = function(name, context)
-              local parent_dir = vim.fs.basename(vim.fs.dirname(vim.fn.expand("%")))
+              local file = context.file
+              if context.current == nil then
+                file = vim.fn.expand("%")
+              end
+
+              -- local parent_dir = vim.fs.basename(vim.fs.dirname(vim.fn.expand("%")))
+              -- local check = vim.fn.expand("%")
+              local parent_dir = vim.fs.basename(vim.fs.dirname(file))
 
               if parent_dir == "." then
                 return name
