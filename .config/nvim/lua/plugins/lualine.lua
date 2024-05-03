@@ -95,15 +95,15 @@ return {
             mode = 2,
             use_mode_colors = true,
             fmt = function(name, context)
-              local file = context.file
-              if context.current == nil then
-                file = vim.fn.expand("%")
+              local cwd_basename = vim.fs.basename(vim.loop.cwd())
+              local parent_dir = vim.fs.basename(vim.fs.dirname(context.file))
+
+              -- file in the root of cwd, and is not tab focus
+              if cwd_basename == parent_dir then
+                return name
               end
 
-              -- local parent_dir = vim.fs.basename(vim.fs.dirname(vim.fn.expand("%")))
-              -- local check = vim.fn.expand("%")
-              local parent_dir = vim.fs.basename(vim.fs.dirname(file))
-
+              -- file in the root of cwd, and is tab focus
               if parent_dir == "." then
                 return name
               end
