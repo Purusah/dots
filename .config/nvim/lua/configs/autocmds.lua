@@ -40,12 +40,16 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 -- [[ LSP formt on save ]]
 -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
--- Update git status global
+-- Update global git status
 local git_timer = vim.uv.new_timer()
-local n = require("fidget")
--- Waits 1000ms, then repeats every 1000ms
-git_timer:start(1000, 1000, function()
-  -- n.notify("timer invoked")
-end)
+local git_helper = require("helpers.git")
+
+git_timer:start(
+  1000,
+  10000,
+  vim.schedule_wrap(function() -- Waits 1000ms, then repeats every 1000ms
+    git_helper.update_x_git_status()
+  end)
+)
 
 -- vim: ts=2 sts=2 sw=2 et

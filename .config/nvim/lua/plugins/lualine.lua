@@ -35,12 +35,12 @@ return {
               -- It must return a table as such:
               --   { added = add_count, modified = modified_count, removed = removed_count }
               -- or nil on failure. count <= 0 won't be displayed.
-              local state = vim.b.git_state
-              if state == nil then
+              local git_status = vim.g.x_git_status
+              if git_status == nil then
                 return nil
               end
 
-              return state
+              return git_status
             end,
           },
         },
