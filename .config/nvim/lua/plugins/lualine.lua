@@ -78,13 +78,23 @@ return {
           },
         },
       },
-
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { "filename" },
-        lualine_x = { "location" },
-        lualine_y = {},
+        lualine_c = {
+          {
+            "filename",
+            symbols = { modified = "  ", readonly = " 🔒" },
+            path = 4,
+          },
+        },
+        lualine_x = {},
+        lualine_y = {
+          {
+            "location",
+            color = { fg = colors.cyan, bg = colors.none },
+          },
+        },
         lualine_z = {},
       },
       tabline = {
