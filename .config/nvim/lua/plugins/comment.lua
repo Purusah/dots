@@ -1,5 +1,6 @@
 return {
   "numToStr/Comment.nvim",
+  event = "BufRead",
   -- "gc" to comment visual regions/lines
   opts = {},
 }

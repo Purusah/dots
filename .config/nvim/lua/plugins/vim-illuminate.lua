@@ -1,6 +1,6 @@
 return {
   "RRethy/vim-illuminate",
-  dependencies = {},
+  event = "BufRead",
   keys = {
     { "]]", desc = "Next Reference" },
     { "[[", desc = "Prev Reference" },

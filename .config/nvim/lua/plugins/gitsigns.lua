@@ -1,6 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
-  dependencies = {},
+  event = "BufRead",
   keys = {
     { "]c", "<Plug>(gitsigns-next-hunk)", desc = "Git: Next Hunk" },
     { "[c", "<Plug>(gitsigns-prev-hunk)", desc = "Git: Previous Hunk" },
@@ -27,7 +27,6 @@ return {
     -- map('n', '<leader>td', gs.toggle_deleted)
     -- map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
   },
-  event = "BufRead",
   config = function()
     require("gitsigns").setup({
       signs = {

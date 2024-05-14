@@ -36,6 +36,20 @@ return {
       vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
     end
 
+    require("lspconfig").tsserver.setup({
+      on_attach = on_attach,
+      root_dir = require("lspconfig").util.root_pattern("package.json"),
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+      },
+      single_file_support = false,
+    })
+
     require("lspconfig").denols.setup({
       on_attach = on_attach,
       root_dir = require("lspconfig").util.root_pattern("deno.json", "deno.jsonc"),
@@ -113,20 +127,6 @@ return {
           },
         },
       },
-    })
-
-    require("lspconfig").tsserver.setup({
-      on_attach = on_attach,
-      root_dir = require("lspconfig").util.root_pattern("package.json"),
-      filetypes = {
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-      },
-      single_file_support = false,
     })
   end,
 }
