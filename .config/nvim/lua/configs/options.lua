@@ -31,7 +31,6 @@ vim.o.title = true
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.foldlevel = 99 -- first usage of zc folds everything
 vim.o.foldmethod = "expr"
-vim.o.nofoldenable = true
 
 -- Make line numbers default
 vim.wo.number = true
