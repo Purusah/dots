@@ -1,9 +1,8 @@
 return {
   "lewis6991/gitsigns.nvim",
-  event = "BufRead",
   keys = {
-    { "]c", "<Plug>(gitsigns-next-hunk)", desc = "Git: Next Hunk" },
-    { "[c", "<Plug>(gitsigns-prev-hunk)", desc = "Git: Previous Hunk" },
+    { "]h", "<Plug>(gitsigns-next-hunk)", desc = "Git: Next Hunk" },
+    { "[h", "<Plug>(gitsigns-prev-hunk)", desc = "Git: Previous Hunk" },
     { "<leader>hb", "<cmd>lua require('gitsigns').toggle_current_line_blame()<CR>", desc = "Git: Toggle Line Blance" },
     { "<leader>hd", "<cmd>lua require('gitsigns').diffthis()<CR>", desc = "Git: Diff This" },
     { "<leader>hp", "<cmd>lua require('gitsigns').preview_hunk()<CR>", desc = "Git: Preview Hunk" },
