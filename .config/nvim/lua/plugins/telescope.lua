@@ -2,6 +2,7 @@
 return {
   "nvim-telescope/telescope.nvim",
   branch = "0.1.x",
+  event = "VimEnter",
   dependencies = {
     "nvim-telescope/telescope-file-browser.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
@@ -23,7 +24,6 @@ return {
       end,
     },
   },
-  event = "VeryLazy",
   keys = {
     { "<leader><leader>", "<cmd>lua require('telescope.builtin').buffers()<CR>", desc = "Show Open Buffers" },
     { "<leader>lD", "<cmd>lua require('telescope.builtin').diagnostics()<CR>", desc = "LSP: [D]iagnostics" },

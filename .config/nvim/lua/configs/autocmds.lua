@@ -1,8 +1,8 @@
 -- Auto start file browser when opening a directory
-vim.cmd([[autocmd StdinReadPre * let s:std_in=1]])
-vim.cmd(
-  [[autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | exe "lua require('telescope').extensions.file_browser.file_browser()" | endif]]
-)
+-- vim.cmd([[autocmd StdinReadPre * let s:std_in=1]])
+-- vim.cmd(
+--   [[autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | exe "lua require('telescope').extensions.file_browser.file_browser()" | endif]]
+-- )
 
 local function augroup(name)
   return vim.api.nvim_create_augroup("custom_" .. name, { clear = true })
