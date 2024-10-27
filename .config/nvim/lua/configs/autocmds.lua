@@ -52,4 +52,13 @@ git_timer:start(
   end)
 )
 
+-- Test event
+-- vim.api.nvim_create_autocmd("BufReadPost", {
+--   group = augroup("test_event"),
+--   pattern = "*",
+--   callback = function()
+--      print("Test event")
+--   end,
+-- })
+
 -- vim: ts=2 sts=2 sw=2 et

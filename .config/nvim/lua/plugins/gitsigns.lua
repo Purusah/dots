@@ -1,5 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
+  event = "BufReadPost",
   keys = {
     { "]h", "<Plug>(gitsigns-next-hunk)", desc = "Git: Next Hunk" },
     { "[h", "<Plug>(gitsigns-prev-hunk)", desc = "Git: Previous Hunk" },
