@@ -27,12 +27,13 @@ config.animation_fps = 30
 config.font = wezterm.font("JetBrainsMono-Regular")
 config.window_background_opacity = 0.8
 config.font_size = 16.0
+config.native_macos_fullscreen_mode = true
 
 local maybe_background_image = wezterm.glob(default_image_path, wezterm.config_dir)[1]
 if maybe_background_image then
   config.window_background_image = wezterm.config_dir .. "/" .. maybe_background_image
   config.window_background_image_hsb = {
-    brightness = 0.05,
+    brightness = 0.80,
     hue = 1.0,
     saturation = 1.0,
   }
