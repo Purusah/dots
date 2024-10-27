@@ -60,4 +60,5 @@ dots submodule update --init --recursive $HOME/
 * TypeScript LSP
 * See Telescope dependecy list
 * https://github.com/BurntSushi/ripgrep
+* [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono/tree/v2.304)
 
