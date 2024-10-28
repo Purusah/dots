@@ -36,7 +36,7 @@ return {
       vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
     end
 
-    require("lspconfig").tsserver.setup({
+    require("lspconfig").ts_ls.setup({
       on_attach = on_attach,
       root_dir = require("lspconfig").util.root_pattern("package.json"),
       filetypes = {
