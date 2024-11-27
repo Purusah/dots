@@ -36,6 +36,11 @@ vim.o.foldmethod = "expr"
 vim.wo.number = true
 vim.o.relativenumber = true
 
+-- For Deno LSP
+vim.g.markdown_fenced_languages = {
+  "ts=typescript"
+}
+
 -- Enable mouse mode
 vim.o.mouse = "a"
 
