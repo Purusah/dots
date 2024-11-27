@@ -1,6 +1,8 @@
 [alias]
 	mr = push origin HEAD
-	mrf = push -f origin HEAD
+    mrf = push --force-with-lease origin HEAD
 	branch-gc = !git branch --merged | egrep -v \"(^\\*|master|main|develop)\" | xargs git branch -d  && git remote prune origin && git gc
 [init]
 	defaultBranch = main
+[push]
+    default = current
